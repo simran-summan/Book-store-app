@@ -1,32 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import BookItem from "../Component/BookItem";
-import Navbar from "./Navbar";
+import Navbar from "../Component/Navbar";
 import DetailsBook from "./DetailsBook";
 import { BookContext } from "../Context/BookContext";
 import Loader from "../Loader";
 import Pagination from "../Component/Pagination";
+import '../index.css'
+import Footer from "../Component/Footer";
+import ImageSlider from "../Component/ImageSlider";
 
 
 function Home() {
   const { data, setData, loading, setLoading } = useContext(BookContext);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [postPerPage, setPostPerPage] = useState(10);
-  const [pagination, setPagination] = useState({});
 
-
-  const fetchBook = async (pageNo) => {
+  const fetchBook = async () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://book-store-app-8ngn.onrender.com/api/v1/books?pageNo=${pageNo}&pageSize=${postPerPage}&sortBy=id&order=asc`
-      );
-      // console.log(response.data.pagination);
-      const paginationData = response.data.pagination;
-      setPagination(paginationData);
-      setCurrentPage(paginationData.currentPage);
-      // setPostPerPage(paginationData.currentItem)
+        `https://book-store-app-8ngn.onrender.com/api/v1/books?pageNo=0&pageSize=10&sortBy=id&order=asc`
+      )
       if (Array.isArray(response.data.data)) {
         setData(response.data.data);
         setLoading(false);
@@ -49,55 +43,27 @@ function Home() {
       }
     }
   };
-
+console.log(data[0]);
  
   useEffect(() => {
-    fetchBook(currentPage);
-  }, [currentPage]);
-
-  // console.log(pagination);
-
-  if (error) return <div>{error}</div>;
-
-  const handlePageChange = (pageNo ) => {
-    setCurrentPage(pageNo);
-  };
-  
-  const handleCurrentPage =(currentPage)=>{
-    setCurrentPage(currentPage)
+    fetchBook();
+  }, []);
+return(
+  <>
+  <Navbar color={'purple-100'}/>
+   <div className="m-7 min-h-screen">
+    {data.length > 0 ?
+    (<div>
+    <ImageSlider images={data.map((data)=> data)}/> 
+    </div>
+    ):(
+      <Loader/>
+    )
   }
-
-  return (
-    <>
-    <Navbar color={'purple-100'}/>
-      <div className=" flex flex-wrap gap-5 justify-center items-center p-4 font-serif"
-      style={{backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZwYzsS_CL64KW54GK7Dj6OSgJM_831unKg&s)`,
-        backdropFilter:'blur(10px)',
-        backgroundSize:'cover'
-      }}
-      >
-        {Array.isArray(data) &&
-          data.map((item) => (
-            <ul key={item.id}>
-              <BookItem item={item} />
-            </ul>
-          ))}
-      </div>
-      {loading ? (
-        <h1 className="text-5xl text-red-500 text-center">
-          <Loader />
-        </h1>
-      ) : <Pagination
-        postPerPage={postPerPage}
-        totalPage={pagination.totalPages}
-        paginate={handlePageChange}
-        currentPage={currentPage}
-        currentPageCount={handleCurrentPage}
-        pagination={pagination}
-        />} 
-      
-    </>
-  )
+   </div>
+  <Footer/>
+  </>
+)
 }
 
 export default Home;

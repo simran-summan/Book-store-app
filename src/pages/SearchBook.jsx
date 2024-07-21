@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "./Navbar";
+import Navbar from "../Component/Navbar";
 import BookItem from "../Component/BookItem";
 import { BookContext } from "../Context/BookContext";
 import Loader from "../Loader";
 import Pagination from "../Component/Pagination";
 import DropDown from "../Component/DropDown";
+import Footer from "../Component/Footer";
 
 const SearchBook = () => {
   const { data, setData, loading, setLoading } = useContext(BookContext);
@@ -150,6 +151,7 @@ const SearchBook = () => {
                 currentPage={currentPage}
               />
             ) : null}
+      <Footer/>
           </>
         )}
       </div>

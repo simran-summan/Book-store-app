@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 import bgImage from '../assets/pexels-designecologist-1392854.jpg'
+import Navbar from "../Component/Navbar";
+import Footer from "../Component/Footer";
 
 function CreateBook() {
   const [title, setTitle] = useState("");
@@ -94,6 +96,7 @@ function CreateBook() {
   }
   
   return (
+    <>
     <div className="bg-purple-300 h-screen"
     style={{
       backgroundImage: `url(${bgImage})`,
@@ -103,7 +106,7 @@ function CreateBook() {
     }}
     
     >
-      
+      <Navbar color={'purple-300'}/>
     <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-48 py-14 absolute top-20 text-white hover:shadow-md hover:shadow-purple-500 duration-300"
       >
       {/* <img src={bgImage} alt="" /> */}
@@ -203,6 +206,8 @@ function CreateBook() {
       </div>
     </div>
           </div>
+    <Footer/>
+    </>
   );
 }
 
