@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-custom {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bg-custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/path-to-your-image.jpg'); /* Update with your image path */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8); /* Adjust brightness here */
+    z-index: -1; /* Ensure the background is behind the content */
+  }
+  
