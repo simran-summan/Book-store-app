@@ -70,7 +70,12 @@ function Home() {
   return (
     <>
     <Navbar color={'purple-100'}/>
-      <div className=" flex flex-wrap gap-5 justify-center items-center p-4 font-serif">
+      <div className=" flex flex-wrap gap-5 justify-center items-center p-4 font-serif"
+      style={{backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZwYzsS_CL64KW54GK7Dj6OSgJM_831unKg&s)`,
+        backdropFilter:'blur(10px)',
+        backgroundSize:'cover'
+      }}
+      >
         {Array.isArray(data) &&
           data.map((item) => (
             <ul key={item.id}>

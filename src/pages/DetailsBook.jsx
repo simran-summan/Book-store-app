@@ -50,9 +50,9 @@ function DetailsBook() {
             </div>
           )}
         </div>
-        <div className='w-full p-32 text-xl ml-40 my-12 bg-white rounded-l-full'>
+        <div className='w-full p-32 text-xl ml-40 my-12 bg-white rounded-l-full border border-purple-400'>
           <h1 className='text-5xl'>{data.title}</h1>
-          <h3 className='py-4 italic mb-9 border-gray-400 border-b-2 w-96'><span className='text-lg '>By-</span> {data.author} | {data.publishYear}</h3>
+          <h3 className='py-6 italic w-[30rem] text-lg'><span className='text-lg '>By-</span> {data.author} | {data.publishYear} |   <span className='text-sm text-gray-700 pl-2'>ISBN: {data.isbn}</span>  </h3>
           <strong>About the book:</strong> 
           <p className='pb-4'>{data.summary}</p>
           <div className='mt-7'>

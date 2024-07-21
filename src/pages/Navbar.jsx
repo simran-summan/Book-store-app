@@ -5,7 +5,7 @@ import SearchBar from '../Component/SearchBar'
 function Navbar({ query ,setQuery , color}) {
 
   return (
-    <div className={`bg-${color} p-3 flex justify-between shadow-md font-serif`}
+    <div className={`bg-${color} p-3 flex justify-between shadow-lg shadow-black font-serif border-b-2 border-purple-400 `}
     >
       <h1 className='text-2xl font-semibold text-purple-700 '>Book Store</h1>
       <SearchBar setQuery= {setQuery} query={query}/>
