@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Baskervville:ital@0;1&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Hind:wght@300;400;500;600;700&family=Kiwi+Maru&family=Playwrite+CZ:wght@100..400&family=Playwrite+DK+Uloopet:wght@100..400&family=Quintessential&display=swap');
 /* Import slick-carousel CSS */
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
 
+=======
+>>>>>>> f1e6bbe (first commit)
 .bg-custom {
     position: relative;
     overflow: hidden;
@@ -26,6 +29,7 @@
     filter: brightness(0.8); /* Adjust brightness here */
     z-index: -1; /* Ensure the background is behind the content */
   }
+<<<<<<< HEAD
   
   .hind-light {
     font-family: "Hind", sans-serif;
@@ -159,3 +163,6 @@
 .custom-shape-divider-bottom-1721992099 .shape-fill {
   fill: #9346AA;
 }
+=======
+  
+>>>>>>> f1e6bbe (first commit)

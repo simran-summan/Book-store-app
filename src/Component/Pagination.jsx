@@ -1,7 +1,7 @@
 import React from 'react';
 import { GrPrevious, GrNext } from "react-icons/gr";
 
-const Pagination = ({ postPerPage, totalPage, paginate, currentPage }) => {
+const Pagination = ({ totalPage, paginate, currentPage }) => {
     const pageNo = [];
     for (let i = 0; i < totalPage ; i++) {
         pageNo.push(i);
