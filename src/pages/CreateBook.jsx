@@ -97,14 +97,14 @@ function CreateBook() {
     <div className="bg-purple-300 h-screen"
     style={{
       backgroundImage: `url(${bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        // opacity:'0.9'
-      }}
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      // opacity:'0.9'
+    }}
     
     >
       
-    <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-48 py-14 absolute top-20 text-white hover:shadow-md hover:shadow-purple-500 duration-300 "
+    <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-48 py-14 absolute top-20 text-white hover:shadow-md hover:shadow-purple-500 duration-300"
       >
       {/* <img src={bgImage} alt="" /> */}
       <h1 className="text-4xl font-semibold text-center">Create new book</h1>
@@ -117,7 +117,7 @@ function CreateBook() {
           value={title}
           className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
           onChange={(e) => setTitle(e.target.value)}
-        />
+          />
         {error.title && (
           <span className="text-red-500 py-1">{error.title}</span>
         )} 
@@ -131,7 +131,7 @@ function CreateBook() {
           value={author}
           className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
           onChange={(e) => setAuthor(e.target.value)}
-        />
+          />
         {error.author && (
           <span className="text-red-500 py-1 ">{error.author}</span>
         )}  
@@ -202,7 +202,7 @@ function CreateBook() {
         
       </div>
     </div>
-        </div>
+          </div>
   );
 }
 
