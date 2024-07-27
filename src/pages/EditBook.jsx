@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { BookContext } from "../Context/BookContext";
 import Loader from "../Loader";
+import '../index.css'
 
 function EditBook() {
   const [title, setTitle] = useState("");
@@ -27,15 +28,15 @@ function EditBook() {
         setTitle(bookData.title);
         setAuthor(bookData.author);
         setPublishYear(bookData.publishYear);
-        setSummary(bookData.summary );
+        setSummary(bookData.summary);
         setIsbn(bookData.isbn);
-        setImage(bookData.image?.url );
+        setImage(bookData.image?.url);
       })
       .catch((error) => {
         console.log(error);
         setLoading(false);
       });
-    }, [id, setLoading]);
+  }, [id, setLoading]);
 
   const handleEditBook = () => {
     const formData = new FormData();
@@ -44,17 +45,21 @@ function EditBook() {
     formData.append("publishYear", publishYear);
     formData.append("summary", summary);
     formData.append("isbn", isbn);
-    if (image && typeof image === 'object') {
+    if (image && typeof image === "object") {
       formData.append("image", image);
     }
     setLoading(true);
 
     axios
-      .put(`https://book-store-app-8ngn.onrender.com/api/v1/books/${id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .put(
+        `https://book-store-app-8ngn.onrender.com/api/v1/books/${id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
       .then((response) => {
         const updatedBook = response.data; // Access the updated book data
         setData((prevBooks) =>
@@ -84,62 +89,87 @@ function EditBook() {
   }
 
   return (
-    <div className="flex flex-col border-2 border-sky-200 rounded-lg w-[600px] p-9 font-mono bg-sky-100 m-auto mt-4 shadow-lg">
-      <h1 className="text-2xl py-3">Edit new book</h1>
-      <div className="flex flex-col ">
-        <label>Title:</label>
-        <input
-          type="text"
-          value={title}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-3"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label>Author:</label>
-        <input
-          type="text"
-          value={author}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-3"
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-        <label>Publish Year:</label>
-        <input
-          type="number"
-          value={publishYear}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-3"
-          onChange={(e) => setPublishYear(e.target.value)}
-        />
-        <label>Summary:</label>
-        <input
-          type="text"
-          min={50}
-          max={1000}
-          value={summary}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-3"
-          onChange={(e) => setSummary(e.target.value)}
-        />
-        <label>ISBN:</label>
-        <input
-          type="text"
-          min={10}
-          max={13}
-          value={isbn}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-3"
-          onChange={(e) => setIsbn(e.target.value)}
-        />
-        <label>Image:</label>
+    <div className="p-0 m-0 min-h-screen">
+
+    <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-4  absolute top-7  hover:shadow-md hover:shadow-purple-500 duration-300">
+      <div class="custom-shape-divider-top-1721991327">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
+    </svg>
+</div>
+      <h1 className="text-4xl font-semibold text-center">Edit new book</h1>
+      <div className="grid grid-cols-2 gap-x-4 m-10 gap-y-4 font-semibold">
+        <div>
+          <label>Title:</label>
+          <input
+            type="text"
+            value={title}
+            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
+            onChange={(e) => setTitle(e.target.value)}
+            />
+        </div>
+        <div>
+          <label>Author:</label>
+          <input
+            type="text"
+            value={author}
+            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
+            onChange={(e) => setAuthor(e.target.value)}
+            />
+        </div>
+        <div>
+          <label>Summary:</label>
+          <input
+            type="text"
+            min={50}
+            max={1000}
+            value={summary}
+            className="border-2 border-gray-500 px-2 py-1 w-[51rem] my-1 rounded-md"
+            onChange={(e) => setSummary(e.target.value)}
+          />
+        </div>
+        <br />
+        <div>
+          <label>Publish Year:</label>
+          <input
+            type="number"
+            value={publishYear}
+            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
+            onChange={(e) => setPublishYear(e.target.value)}
+            />
+        </div>
+        <div>
+          <label>ISBN:</label>
+          <input
+            type="text"
+            min={10}
+            max={13}
+            value={isbn}
+            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
+            onChange={(e) => setIsbn(e.target.value)}
+            />
+        </div>
+        <div className="flex">
         <input
           type="file"
-          className="border-2 border-gray-500 px-2 py-1 w-full my-3"
+          className="px-1 py-1 my-3 rounded-md mt-1"
           onChange={(e) => setImage(e.target.files[0])}
-        />
+          />
       </div>
       <button
-        className="bg-blue-300 px-5 py-1 mt-7 m-1 rounded-md"
+        className="bg-purple-500 px-3 py-1  w-[7rem] rounded-md m-auto"
         onClick={handleEditBook}
-      >
+        >
         Save
       </button>
+        </div>
+        <div class="custom-shape-divider-bottom-1721992099">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
+    </svg>
+</div>
     </div>
+        </div>
   );
 }
 
