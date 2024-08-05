@@ -1,19 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-<<<<<<< HEAD
 import Navbar from "../Component/Navbar";
-=======
-import Navbar from "./Navbar";
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
 import BookItem from "../Component/BookItem";
 import { BookContext } from "../Context/BookContext";
 import Loader from "../Loader";
 import Pagination from "../Component/Pagination";
 import DropDown from "../Component/DropDown";
-<<<<<<< HEAD
 import Footer from "../Component/Footer";
-=======
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
 
 const SearchBook = () => {
   const { data, setData, loading, setLoading } = useContext(BookContext);
@@ -158,10 +151,7 @@ const SearchBook = () => {
                 currentPage={currentPage}
               />
             ) : null}
-<<<<<<< HEAD
       <Footer/>
-=======
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
           </>
         )}
       </div>

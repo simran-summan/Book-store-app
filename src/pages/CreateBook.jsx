@@ -4,11 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 import bgImage from '../assets/pexels-designecologist-1392854.jpg'
-<<<<<<< HEAD
 import Navbar from "../Component/Navbar";
 import Footer from "../Component/Footer";
-=======
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
 
 function CreateBook() {
   const [title, setTitle] = useState("");
@@ -99,7 +96,6 @@ function CreateBook() {
   }
   
   return (
-<<<<<<< HEAD
     <>
     <div className="bg-purple-300 h-screen"
     style={{
@@ -112,19 +108,6 @@ function CreateBook() {
     >
       <Navbar color={'purple-300'}/>
     <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-48 py-14 absolute top-20 text-white hover:shadow-md hover:shadow-purple-500 duration-300"
-=======
-    <div className="bg-purple-300 h-screen"
-    style={{
-      backgroundImage: `url(${bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        // opacity:'0.9'
-      }}
-    
-    >
-      
-    <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-48 py-14 absolute top-20 text-white hover:shadow-md hover:shadow-purple-500 duration-300 "
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
       >
       {/* <img src={bgImage} alt="" /> */}
       <h1 className="text-4xl font-semibold text-center">Create new book</h1>
@@ -137,11 +120,7 @@ function CreateBook() {
           value={title}
           className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
           onChange={(e) => setTitle(e.target.value)}
-<<<<<<< HEAD
           />
-=======
-        />
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
         {error.title && (
           <span className="text-red-500 py-1">{error.title}</span>
         )} 
@@ -155,11 +134,7 @@ function CreateBook() {
           value={author}
           className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
           onChange={(e) => setAuthor(e.target.value)}
-<<<<<<< HEAD
           />
-=======
-        />
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
         {error.author && (
           <span className="text-red-500 py-1 ">{error.author}</span>
         )}  
@@ -230,13 +205,9 @@ function CreateBook() {
         
       </div>
     </div>
-<<<<<<< HEAD
           </div>
     <Footer/>
     </>
-=======
-        </div>
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
   );
 }
 

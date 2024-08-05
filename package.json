@@ -15,13 +15,9 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.0",
-<<<<<<< HEAD
     "react-slick": "^0.30.2",
     "react-spinners": "^0.14.1",
     "slick-carousel": "^1.8.1"
-=======
-    "react-spinners": "^0.14.1"
->>>>>>> f1e6bbede6e5b704a93377ea6d08600d7f8d2ef6
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

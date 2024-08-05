@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import BookItem from "../Component/BookItem";
 import Navbar from "../Component/Navbar";
-import DetailsBook from "./DetailsBook";
 import { BookContext } from "../Context/BookContext";
 import Loader from "../Loader";
-import Pagination from "../Component/Pagination";
 import '../index.css'
 import Footer from "../Component/Footer";
 import ImageSlider from "../Component/ImageSlider";
+import bgImage from '../assets/bgHome.jpg'
 
 
 function Home() {
@@ -51,9 +49,14 @@ console.log(data[0]);
 return(
   <>
   <Navbar color={'purple-100'}/>
-   <div className="m-7 min-h-screen">
+   <div className="min-h-screen" style={{
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      opacity:'0.9'
+    }}>
     {data.length > 0 ?
-    (<div>
+    (<div >
     <ImageSlider images={data.map((data)=> data)}/> 
     </div>
     ):(
