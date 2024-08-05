@@ -159,3 +159,35 @@
 .custom-shape-divider-bottom-1721992099 .shape-fill {
   fill: #9346AA;
 }
+
+.custom-arrow {
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(128, 26, 201, 1) 0%, rgba(64, 0, 128, 1) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-arrow::before {
+  font-size: 20px;
+  color: rgb(13, 13, 13);
+}
+
+.custom-arrow:hover {
+  background: linear-gradient(135deg, rgba(64, 0, 128, 1) 0%, rgba(128, 26, 201, 1) 100%);
+  transform: scale(1.1);
+}
+
+.next-arrow {
+  right: 10px;
+}
+
+.prev-arrow {
+  left: 10px;
+}

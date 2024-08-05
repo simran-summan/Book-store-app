@@ -6,6 +6,7 @@ import Loader from "../Loader";
 import '../index.css'
 import Footer from "../Component/Footer";
 import ImageSlider from "../Component/ImageSlider";
+import HomeSlider from "../Component/HomeSlider";
 import bgImage from '../assets/bgHome.jpg'
 
 
@@ -48,6 +49,7 @@ console.log(data[0]);
   }, []);
 return(
   <>
+  <div className="overflow-x-hidden">
   <Navbar color={'purple-100'}/>
    <div className="min-h-screen" style={{
       backgroundImage: `url(${bgImage})`,
@@ -64,7 +66,17 @@ return(
     )
   }
    </div>
+   {data.length > 0 ?
+    (<div >
+      <HomeSlider images={data.map((data)=> data)}/> 
+    </div>
+    ):(
+      <Loader/>
+    )
+  }
+   
   <Footer/>
+      </div>
   </>
 )
 }

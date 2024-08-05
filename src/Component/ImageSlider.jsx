@@ -2,7 +2,35 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../index.css'
+import '../index.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} custom-arrow next-arrow`}
+      style={{right: '20px'}}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon icon={faChevronRight} />
+    </div>
+  );
+};
+
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} custom-arrow prev-arrow`}
+      style={{left: '20px'}}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon icon={faChevronLeft} />
+    </div>
+  );
+};
 
 const ImageSlider = ({ images }) => {
   const settings = {
@@ -13,18 +41,16 @@ const ImageSlider = ({ images }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
-    <div className="m-7 min-h-screen">
+    <div className="min-h-screen">
       <Slider {...settings}>
         {images.map((data, index) => (
-          <div key={data.id} className='!flex'>
-            <div className='w-[40%] mx-24 relative'>
-            <h1 className='text-6xl bodoni-moda bottom-24 absolute'>{data.title}</h1>
-            <p className='baskervville-regular text-xl bottom-7 absolute'>{data.summary}</p>
-            </div>
-            <img src={data.image.url} alt={`Slide ${index}`} className="w-[25%] h-auto" />
+          <div key={data.id} className="!flex justify-center items-center mt-32">
+            <img src={data.image.url} alt={`Slide ${index}`} className="w-[17%]" />
           </div>
         ))}
       </Slider>
