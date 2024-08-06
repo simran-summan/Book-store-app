@@ -18,7 +18,7 @@ function Home() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://book-store-app-8ngn.onrender.com/api/v1/books?pageNo=0&pageSize=10&sortBy=id&order=asc`
+        `https://book-store-app-8ngn.onrender.com/api/v1/books?pageNo=2&pageSize=10&sortBy=id&order=asc`
       )
       if (Array.isArray(response.data.data)) {
         setData(response.data.data);
@@ -75,8 +75,8 @@ return(
     )
   }
    
-  <Footer/>
       </div>
+  <Footer/>
   </>
 )
 }
