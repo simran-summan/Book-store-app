@@ -5,13 +5,16 @@ import "slick-carousel/slick/slick-theme.css";
 import '../index.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
       className={`${className} custom-arrow next-arrow`}
-      style={{right: '20px'}}
+      style={{right: '20px',
+        background: '#7520a8'
+      }}
       onClick={onClick}
     >
       <FontAwesomeIcon icon={faChevronRight} />
@@ -24,7 +27,9 @@ const PrevArrow = (props) => {
   return (
     <div
       className={`${className} custom-arrow prev-arrow`}
-      style={{left: '20px'}}
+      style={{left: '20px',
+        background: '#7520a8'
+      }}
       onClick={onClick}
     >
       <FontAwesomeIcon icon={faChevronLeft} />
@@ -49,8 +54,11 @@ const ImageSlider = ({ images }) => {
     <div className="min-h-screen">
       <Slider {...settings}>
         {images.map((data, index) => (
-          <div key={data.id} className="!flex justify-center items-center mt-32">
-            <img src={data.image.url} alt={`Slide ${index}`} className="w-[17%]" />
+          <div key={data.id} >
+            <Link to={`/details/${data.id}`} className='!flex flex-col justify-center items-center mt-32'>
+            <img src={data.image.url} alt={`Slide ${index}`} className="w-[17%] shadow-lg shadow-black transform transition-transform duration-500 hover:scale-110" />
+            <h1 className='text-2xl mt-9 text-center font-light'>{data.title}</h1>
+           </Link>
           </div>
         ))}
       </Slider>
