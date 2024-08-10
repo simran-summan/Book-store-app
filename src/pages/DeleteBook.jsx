@@ -17,8 +17,8 @@ function DeleteBook({onClose }) {
       .then(() => {
         setLoading(false);
         removeBook(id);
-        alert("Book deleted");
-        navigate("/");
+        alert("Book deleted successfully!");
+        navigate("/getAllBook");
       })
       .catch((error) => {
         if (error.response) {

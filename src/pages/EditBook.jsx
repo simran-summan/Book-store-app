@@ -3,7 +3,9 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { BookContext } from "../Context/BookContext";
 import Loader from "../Loader";
-import '../index.css'
+import '../index.css';
+import Footer from "../Component/Footer";
+import Navbar from "../Component/Navbar";
 
 function EditBook() {
   const [title, setTitle] = useState("");
@@ -89,87 +91,89 @@ function EditBook() {
   }
 
   return (
-    <div className="p-0 m-0 min-h-screen">
+    <>
+    <Navbar color={'purple-100'}/>
+    <div className="min-h-screen flex justify-center items-center p-4" style={{backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZwYzsS_CL64KW54GK7Dj6OSgJM_831unKg&s)`,
+          backdropFilter:'blur(10px)',
+          backgroundSize:'cover',
+          }}>
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl bg-opacity-50 backdrop-filter backdrop-blur-lg">
 
-    <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-4  absolute top-7  hover:shadow-md hover:shadow-purple-500 duration-300">
-      <div class="custom-shape-divider-top-1721991327">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
-    </svg>
-</div>
-      <h1 className="text-4xl font-semibold text-center">Edit new book</h1>
-      <div className="grid grid-cols-2 gap-x-4 m-10 gap-y-4 font-semibold">
-        <div>
-          <label>Title:</label>
-          <input
-            type="text"
-            value={title}
-            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-            onChange={(e) => setTitle(e.target.value)}
+        <h1 className="text-3xl font-bold text-center text-purple-600 mb-6">
+          Edit Book Details
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="text-gray-700">Title</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter book title"
             />
+          </div>
+          <div>
+            <label className="text-gray-700">Author</label>
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter author name"
+              />
+          </div>
+          <div className="col-span-2">
+            <label className="text-gray-700">Summary</label>
+            <textarea
+              value={summary}
+              onChange={(e) => setSummary(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter book summary"
+              rows="4"
+              />
+          </div>
+          <div>
+            <label className="text-gray-700">Publish Year</label>
+            <input
+              type="number"
+              value={publishYear}
+              onChange={(e) => setPublishYear(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter publish year"
+              />
+          </div>
+          <div>
+            <label className="text-gray-700">ISBN</label>
+            <input
+              type="text"
+              value={isbn}
+              onChange={(e) => setIsbn(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter ISBN number"
+              />
+          </div>
+          <div className="col-span-2">
+            <label className="text-gray-700">Upload Image</label>
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              className="mt-2 w-full"
+              />
+          </div>
         </div>
-        <div>
-          <label>Author:</label>
-          <input
-            type="text"
-            value={author}
-            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-            onChange={(e) => setAuthor(e.target.value)}
-            />
-        </div>
-        <div>
-          <label>Summary:</label>
-          <input
-            type="text"
-            min={50}
-            max={1000}
-            value={summary}
-            className="border-2 border-gray-500 px-2 py-1 w-[51rem] my-1 rounded-md"
-            onChange={(e) => setSummary(e.target.value)}
-          />
-        </div>
-        <br />
-        <div>
-          <label>Publish Year:</label>
-          <input
-            type="number"
-            value={publishYear}
-            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-            onChange={(e) => setPublishYear(e.target.value)}
-            />
-        </div>
-        <div>
-          <label>ISBN:</label>
-          <input
-            type="text"
-            min={10}
-            max={13}
-            value={isbn}
-            className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-            onChange={(e) => setIsbn(e.target.value)}
-            />
-        </div>
-        <div className="flex">
-        <input
-          type="file"
-          className="px-1 py-1 my-3 rounded-md mt-1"
-          onChange={(e) => setImage(e.target.files[0])}
-          />
-      </div>
-      <button
-        className="bg-purple-500 px-3 py-1  w-[7rem] rounded-md m-auto"
-        onClick={handleEditBook}
+
+        <button
+          onClick={handleEditBook}
+          className="bg-purple-600 text-white font-semibold px-6 py-2 rounded-md mt-6 hover:bg-purple-700 w-full duration-100"
         >
-        Save
-      </button>
-        </div>
-        <div class="custom-shape-divider-bottom-1721992099">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
-    </svg>
-</div>
+          Save Changes
+        </button>
+      </div>
     </div>
-        </div>
+    <Footer/>
+  </>
   );
 }
 

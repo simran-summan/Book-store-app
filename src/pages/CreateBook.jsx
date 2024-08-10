@@ -3,9 +3,8 @@ import { BookContext } from "../Context/BookContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
-import bgImage from '../assets/pexels-designecologist-1392854.jpg'
-import Navbar from "../Component/Navbar";
 import Footer from "../Component/Footer";
+import Navbar from "../Component/Navbar";
 
 function CreateBook() {
   const [title, setTitle] = useState("");
@@ -19,8 +18,7 @@ function CreateBook() {
 
   const { loading, setLoading } = useContext(BookContext);
 
-  const handleSavaBook = () => {
-
+  const handleSaveBook = () => {
     const newErrors = {};
 
     if (!title) newErrors.title = "* Title is required";
@@ -41,10 +39,7 @@ function CreateBook() {
     if (isbn.length < 10 || isbn.length > 13)
       newErrors.isbn = "* ISBN must be between 10 to 13 characters";
 
-    // if (!image) newErrors.image = "* Image is required";
-
     setError(newErrors);
-    console.log(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
       return; // If there are errors, don't proceed with the request
@@ -88,126 +83,111 @@ function CreateBook() {
         }
         navigate("/");
       });
-    console.log(formData);
   };
 
   if (loading) {
-   return <Loader/>
+    return <Loader />;
   }
-  
+
   return (
     <>
-    <div className="bg-purple-300 h-screen"
-    style={{
-      backgroundImage: `url(${bgImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      // opacity:'0.9'
-    }}
-    
-    >
-      <Navbar color={'purple-300'}/>
-    <div className="flex flex-col rounded-lg p-32 font-sans  bg-purple-custom mx-48 py-14 absolute top-20 text-white hover:shadow-md hover:shadow-purple-500 duration-300"
-      >
-      {/* <img src={bgImage} alt="" /> */}
-      <h1 className="text-4xl font-semibold text-center">Create new book</h1>
-      <div className="grid grid-cols-2 gap-x-4 m-10 gap-y-4 font-semibold">
-        <div>
-          <label>Title:</label>
-         <input
-          type="text"
-          placeholder="Enter title"
-          value={title}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-          onChange={(e) => setTitle(e.target.value)}
-          />
-        {error.title && (
-          <span className="text-red-500 py-1">{error.title}</span>
-        )} 
-        </div>
-        
-        <div>
-        <label>Author:</label>
-        <input
-          type="text"
-          placeholder="Enter author"
-          value={author}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-          onChange={(e) => setAuthor(e.target.value)}
-          />
-        {error.author && (
-          <span className="text-red-500 py-1 ">{error.author}</span>
-        )}  
-        </div>
-        <div>
-         <label>Summary</label>
-        <input
-          type="text"
-          min={50}
-          max={1000}
-          placeholder="Enter Summary"
-          value={summary}
-          className="border-2 border-gray-500 px-2 py-1 w-[51rem] my-1 rounded-md"
-          onChange={(e) => setSummary(e.target.value)}
-        />
-        {error.summary && (
-          <span className="text-red-500 py-1">{error.summary}</span>
-        )} 
-        </div>
-        <br />
-        <div>
-         <label>Publish Year:</label>
-        <input
-          type="number"
-          placeholder="Enter Publish year"
-          value={publishYear}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-          onChange={(e) => setPublishYear(e.target.value)}
-          />
-        {error.publishYear && (
-          <span className="text-red-500 py-1">{error.publishYear}</span>
-        )} 
-        </div>
-        <div>
-        <label>Isbn</label>
-        <input
-          type="text"
-          min={10}
-          max={13}
-          placeholder="Enter Isbn"
-          value={isbn}
-          className="border-2 border-gray-500 px-2 py-1 w-full my-1 rounded-md"
-          onChange={(e) => setIsbn(e.target.value)}
-          />
-        {error.isbn && <span className="text-red-500 py-1">{error.isbn}</span>}  
-        </div>
-        <div className="flex">
-          <div>
+    <Navbar color={'purple-200'}/>
+    <div className="min-h-screen flex justify-center items-center p-4" style={{backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZwYzsS_CL64KW54GK7Dj6OSgJM_831unKg&s)`,
+          backdropFilter:'blur(10px)',
+          backgroundSize:'cover'}}>
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl bg-opacity-50 backdrop-filter backdrop-blur-lg">
 
-        <input
-          type="file"
-          className=" px-1 py-1 my-3 rounded-md mt-1"
-          onChange={(e) => setImage(e.target.files[0])}
-          />  
-        {error.image && (
-          <span className="text-red-500 py-1">{error.image}</span>
-        )}
+        <h1 className="text-3xl font-bold text-center text-purple-600 mb-6">
+          Create New Book
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="text-gray-700">Title</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter book title"
+              />
+            {error.title && (
+              <span className="text-red-500 py-1">{error.title}</span>
+            )}
+          </div>
+          <div>
+            <label className="text-gray-700">Author</label>
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter author name"
+              />
+            {error.author && (
+              <span className="text-red-500 py-1">{error.author}</span>
+            )}
+          </div>
+          <div className="col-span-2">
+            <label className="text-gray-700">Summary</label>
+            <textarea
+              value={summary}
+              onChange={(e) => setSummary(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter book summary"
+              rows="4"
+              />
+            {error.summary && (
+              <span className="text-red-500 py-1">{error.summary}</span>
+            )}
+          </div>
+          <div>
+            <label className="text-gray-700">Publish Year</label>
+            <input
+              type="number"
+              value={publishYear}
+              onChange={(e) => setPublishYear(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter publish year"
+              />
+            {error.publishYear && (
+              <span className="text-red-500 py-1">{error.publishYear}</span>
+            )}
+          </div>
+          <div>
+            <label className="text-gray-700">ISBN</label>
+            <input
+              type="text"
+              value={isbn}
+              onChange={(e) => setIsbn(e.target.value)}
+              className="border border-gray-300 px-4 py-2 rounded-md w-full mt-1 bg-white focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Enter ISBN number"
+              />
+            {error.isbn && <span className="text-red-500 py-1">{error.isbn}</span>}
+          </div>
+          <div className="col-span-2">
+            <label className="text-gray-700">Upload Image</label>
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              className="mt-2 w-full"
+              />
+            {error.image && (
+              <span className="text-red-500 py-1">{error.image}</span>
+            )}
+          </div>
         </div>
-        <div className="ml-[25rem]">
-      <button
-        className="bg-purple-500 px-3 py-1  w-[7rem] rounded-md m-auto"
-        onClick={handleSavaBook}
+
+        <button
+          onClick={handleSaveBook}
+          className="bg-purple-600 text-white font-semibold px-6 py-2 rounded-md mt-6 hover:bg-purple-700 w-full duration-100"
         >
-        Submit
-      </button>
-      </div>
-        </div>
-        
+          Create Book
+        </button>
       </div>
     </div>
-          </div>
     <Footer/>
-    </>
+          </>
   );
 }
 

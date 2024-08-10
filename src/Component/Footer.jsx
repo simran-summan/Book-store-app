@@ -4,11 +4,11 @@ import '../index.css'
 
 const Footer = () => {
   return (
-    <footer className="bg-purple-700 text-white py-6 bottom-0 w-full hind-regular">
+    <footer className="bg-purple-600 text-white py-6  w-full hind-regular ">
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         <div className="mb-4 md:mb-0 p-2">
-          <h2 className="text-2xl font-bold">Book Bazaar</h2>
-          <p className="text-sm w-[25rem] mt-4">Welcome to Book Bazaar, the ultimate destination for book lovers and literary enthusiasts! Discover a world of stories and knowledge right at your fingertip</p>
+          <h2 className="text-2xl font-bold ">Book Bazaar</h2>
+          <p className="text-lg w-[25rem] mt-4 kiwi-maru-regular">Welcome to Book Bazaar, the ultimate destination for book lovers and literary enthusiasts! Discover a world of stories and knowledge right at your fingertip</p>
         </div>
         <div className="flex md:flex-row ml-40">
           <Link to={`/`} className="text-gray-300 hover:text-white mx-4">Home</Link>
@@ -17,7 +17,7 @@ const Footer = () => {
           <Link to={`/search`} className="text-gray-300 hover:text-white mx-4">Search for a book</Link>
         </div>
         <div className='ml-56 pt-3'>
-          <p>Call : 90501 11210</p>
+          <p>Call : 90501xxx10</p>
           <p>Email : cs@bookbaazar.com</p>
         </div>
       </div>

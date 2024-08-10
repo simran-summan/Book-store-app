@@ -31,7 +31,7 @@ const SearchBook = () => {
 
       setLoading(true);
       axios
-        .get(searchUrl, { timeout: 30000 })
+        .get(searchUrl, { timeout: 50000 })
         .then((response) => {
           setData(response.data.data);
           // console.log("Data fetched: ", response.data);
