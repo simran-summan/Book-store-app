@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-purple-600 text-white py-6  w-full hind-regular ">
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         <div className="mb-4 md:mb-0 p-2">
-          <h2 className="text-2xl font-bold ">Book Bazaar</h2>
+          <Link to={`/`} className="text-2xl font-bold hover:text-purple-200 duration-400">Book Bazaar</Link>
           <p className="text-lg w-[25rem] mt-4 kiwi-maru-regular">Welcome to Book Bazaar, the ultimate destination for book lovers and literary enthusiasts! Discover a world of stories and knowledge right at your fingertip</p>
         </div>
         <div className="flex md:flex-row ml-40">
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
       </div>
         <div className="mt-4 md:mt-0 text-center">
-          <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} Book Bazaar. All rights reserved.</p>
+          <p className="text-sm text-gray-200">&copy; {new Date().getFullYear()} Book Bazaar. All rights reserved.</p>
         </div>
     </footer>
   );
