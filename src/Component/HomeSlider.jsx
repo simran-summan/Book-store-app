@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import '../index.css'
 
@@ -15,7 +13,6 @@ const NextArrow = (props) => {
         }}
         onClick={onClick}
       >
-        <FontAwesomeIcon icon={faChevronRight} />
       </div>
     );
   };
@@ -30,14 +27,13 @@ const NextArrow = (props) => {
         }}
         onClick={onClick}
       >
-        <FontAwesomeIcon icon={faChevronLeft} />
       </div>
     );
   };
 
 function PauseOnHover({images}) {
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -51,8 +47,8 @@ function PauseOnHover({images}) {
     <div className="slider-container py-10" >
       <Slider {...settings}>
       {images.map((data, index) => (
-        <Link to={`/details/${data.id}`}>
-          <div key={data.id} className=" justify-center items-center m-9">
+        <Link to={`/details/${data.id}`} key={data.id}>
+          <div  className=" justify-center items-center m-9">
             <img src={data.image.url} alt={`Slide ${index}`} className="w-[80%] h-[18rem] transform transition-transform duration-500 hover:scale-110" />
             <h1 className='text-md my-4 text-center w-40 font-light'>{data.title}</h1>
           </div>
