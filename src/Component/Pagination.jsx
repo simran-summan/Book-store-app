@@ -20,7 +20,7 @@ const Pagination = ({ totalPage, paginate, currentPage }) => {
                                 
                                 {pageNo.map(number => (
                                     <li key={number} className={`bg-purple-200 hover:bg-purple-300 py-[4px] px-3 rounded-full duration-200 ${currentPage === number ? 'bg-purple-500' : ''}`}>
-                                        <button onClick={() => paginate(number)}>{number}</button>
+                                        <button onClick={() => paginate(number)}>{number+1}</button>
                                     </li>
                                 ))}
                                 
