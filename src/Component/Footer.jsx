@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         <div className="mb-4 md:mb-0 p-2">
           <Link to={`/`} className="text-2xl font-bold hover:text-purple-200 duration-400">Book Bazaar</Link>
-          <p className="text-lg w-[25rem] mt-4 kiwi-maru-regular">Welcome to Book Bazaar, the ultimate destination for book lovers and literary enthusiasts! Discover a world of stories and knowledge right at your fingertip</p>
+          <p className="text-lg md:w-[25rem] lg:w-[25rem] mt-4 kiwi-maru-regular">Welcome to Book Bazaar, the ultimate destination for book lovers and literary enthusiasts! Discover a world of stories and knowledge right at your fingertip</p>
         </div>
         <div className="lg:flex hidden  md:flex-row ml-40">
           <Link to={`/`} className="text-gray-300 hover:text-white mx-4">Home</Link>
