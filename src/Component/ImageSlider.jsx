@@ -52,7 +52,7 @@ const ImageSlider = ({ images }) => {
         {images.map((data, index) => (
           <div key={data.id} >
             <Link to={`/details/${data.id}`} className='!flex flex-col justify-center items-center mt-32'>
-            <img src={data.image.url} alt={`Slide ${index}`} className="w-[17%] shadow-lg shadow-black transform transition-transform duration-500 hover:scale-110" />
+            <img src={data.image.url} alt={`Slide ${index}`} className="w-[50%] md:w-[30%] lg:w-[17%] shadow-lg shadow-black transform transition-transform duration-500 hover:scale-110" />
             <h1 className='text-2xl mt-9 text-center font-light'>{data.title}</h1>
            </Link>
           </div>

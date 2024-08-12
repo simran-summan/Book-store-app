@@ -42,15 +42,39 @@ function PauseOnHover({images}) {
     pauseOnHover: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-  };
+    responsive: [
+      {
+          breakpoint: 1024, // Tablet
+          settings: {
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              infinite: true,
+          },
+      },
+      {
+          breakpoint: 768, // Mobile
+          settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+          },
+      },
+      {
+          breakpoint: 480, // Small Mobile
+          settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+          },
+      },
+  ],
+};
   return (
     <div className="slider-container py-10" >
       <Slider {...settings}>
       {images.map((data, index) => (
         <Link to={`/details/${data.id}`} key={data.id}>
           <div  className=" justify-center items-center m-9">
-            <img src={data.image.url} alt={`Slide ${index}`} className="w-[80%] h-[18rem] transform transition-transform duration-500 hover:scale-110" />
-            <h1 className='text-md my-4 text-center w-40 font-light'>{data.title}</h1>
+            <img src={data.image.url} alt={`Slide ${index}`} className="lg:w-[80%] lg:h-[18rem] transform transition-transform duration-500 hover:scale-110" />
+            <h1 className='text-md my-4 text-center lg:w-40 font-light text-wrap'>{data.title}</h1>
           </div>
         </Link>
         ))}

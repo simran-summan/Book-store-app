@@ -48,7 +48,7 @@ function Home() {
   }, []);
 return(
   <>
-  <div className="overflow-x-hidden">
+  <div className="overflow-x-hidden w-full">
   <Navbar color={'purple-100'}/>
    <div className="min-h-screen" style={{
       backgroundImage: `url(${bgImage})`,
@@ -57,7 +57,7 @@ return(
       opacity:'0.9'
     }}>
     {data.length > 0 ?
-    (<div >
+    (<div>
     <ImageSlider images={data.map((data)=> data)}/> 
     </div>
     ):(
@@ -66,7 +66,7 @@ return(
   }
    </div>
    {data.length > 0 ?
-    (<div >
+    (<div>
       <HomeSlider images={data.map((data)=> data)}/> 
     </div>
     ):(

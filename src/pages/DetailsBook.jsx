@@ -44,15 +44,15 @@ function DetailsBook() {
   return (
     <>
       <Navbar color={'white'}/>
-      <div className='flex font-serif bg-purple-200 '>
+      <div className='flex lg:flex-row  md:flex-row flex-col font-serif bg-purple-200 '>
         <div>
           {data.image && (
             <div className='w-[25rem] '>
-              <img src={data.image.url} alt={data.title} className='h-[80vh] my-9 mx-24 shadow-xl shadow-black' />
+              <img src={data.image.url} alt={data.title} className='h-[80vh] my-3 lg:my-9 mx-14 lg:mx-24 shadow-xl shadow-black' />
             </div>
           )}
         </div>
-        <div className='w-full p-32 text-xl ml-40 my-12 bg-white rounded-l-full border border-purple-400'>
+        <div className='w-full p-20 lg:p-32 text-xl lg:ml-40 md:ml-10 my-12 bg-white rounded-l-full border border-purple-400'>
           <h1 className='text-6xl bodoni-moda'>{data.title}</h1>
           <h3 className='py-6 italic w-[30rem] text-lg crimson-pro'><span className='text-lg '>By-</span> {data.author} | {data.publishYear} |   <span className='pl-2'>ISBN: {data.isbn}</span> </h3>
           <div className='baskervville-regular-bold'>Summary:</div> 

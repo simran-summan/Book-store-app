@@ -103,7 +103,7 @@ function EditBook() {
           Edit Book Details
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="lg:grid md:grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="text-gray-700">Title</label>
             <input
