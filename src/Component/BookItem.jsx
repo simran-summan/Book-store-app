@@ -19,11 +19,11 @@ function BookItem({ item }) {
             </h3>
             <p>
               <strong>Summary:</strong>{" "}
-              {item.summary.length <= 100
+              {item.summary.length <= 60
                 ? item.summary
                 : item.summary.substring(
                     0,
-                    item.summary.lastIndexOf(" ", 100)
+                    item.summary.lastIndexOf(" ", 80)
                   ) + "..."}
             </p>
             <span>
