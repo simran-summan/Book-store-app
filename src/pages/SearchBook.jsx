@@ -27,15 +27,12 @@ const SearchBook = () => {
         // Otherwise, search by title
         searchUrl = `https://book-store-app-8ngn.onrender.com/api/v1/books/search-by-title?title=${query}&pageNo=${currentPage}&pageSize=${postPerPage}&sortBy=${sortField}&&order=${sortOrder}`;
       }
-      console.log(searchUrl);
 
       setLoading(true);
       axios
-        .get(searchUrl, { timeout: 50000 })
+        .get(searchUrl, { timeout: 15000 })
         .then((response) => {
           setData(response.data.data);
-          // console.log("Data fetched: ", response.data);
-          // console.log("Pagination data: ", response.data);
           setLoading(false);
           const paginationData = response.data.pagination;
           setPagination(paginationData);
@@ -44,7 +41,6 @@ const SearchBook = () => {
           setLoading(false);
           if (error.response) {
             console.error("Server error: ", error.response.data);
-            // Log the detailed error message
             console.error("Error message: ", error.response.data.message);
           } else if (error.request) {
             console.error("Network error: ", error.request);
@@ -90,8 +86,6 @@ const SearchBook = () => {
     { value: "publishYear", label: "Publish Year" },
   ];
 
-  console.log("total item: ", pagination.totalItems);
-  console.log("filtered Data :", filteredData);
   return (
     <>
       <div>

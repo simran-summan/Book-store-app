@@ -42,7 +42,6 @@ function Home() {
       }
     }
   };
-console.log(data[0]);
  
   useEffect(() => {
     fetchBook();
