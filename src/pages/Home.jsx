@@ -50,7 +50,7 @@ return(
   <>
   <div className="overflow-x-hidden w-full">
   <Navbar color={'purple-100'}/>
-   <div className="min-h-screen" style={{
+   <div className="h-[50vh] md:min-h-screen lg:min-h-screen" style={{
       backgroundImage: `url(${bgImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
