@@ -48,7 +48,7 @@ function DetailsBook() {
         <div>
           {data.image && (
             <div className='lg:w-[25rem] flex justify-center'>
-              <img src={data.image.url} alt={data.title} className='h-[60vh] md:h-[80vh] lg:h-[80vh] my-3 lg:my-9 mx-5 lg:mx-14 md:mx-20 shadow-xl shadow-black' />
+              <img src={data.image.url} alt={data.title} className='h-[60vh] md:h-[80vh] lg:h-[80vh] my-3 lg:my-9 mx-5 lg:ml-[12rem] md:mx-20 shadow-xl shadow-black' />
             </div>
           )}
         </div>
