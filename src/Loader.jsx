@@ -8,8 +8,8 @@ function Loader() {
       let [loading, setLoading] = useState(true);
     
       return (
-        <div className="  bg-purple-300 max-w-full z-50 max-h-screen">
-          <div className='fixed top-[40%] left-[45%]'>
+        <div className="bg-purple-300 max-w-full z-50 max-h-screen flex justify-center items-center">
+          <div className='fixed top-[50%]'>
            <FadeLoader
             color="purple"
             loading={loading}

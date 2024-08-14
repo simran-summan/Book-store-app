@@ -47,7 +47,7 @@ function DetailsBook() {
       <div className='flex lg:flex-row  md:flex-row flex-col font-serif bg-purple-200 '>
         <div>
           {data.image && (
-            <div className='w-[25rem] '>
+            <div className='lg:w-[25rem] flex justify-center'>
               <img src={data.image.url} alt={data.title} className='h-[60vh] md:h-[80vh] lg:h-[80vh] my-3 lg:my-9 mx-5 lg:mx-14 md:mx-20 shadow-xl shadow-black' />
             </div>
           )}
@@ -57,7 +57,7 @@ function DetailsBook() {
           <h3 className='py-6 italic lg:w-[30rem] text-lg crimson-pro '><span className='text-lg '>By-</span> {data.author} | {data.publishYear} |   <span className='pl-2'>ISBN: {data.isbn}</span> </h3>
           <div className='baskervville-regular-bold'>Summary:</div> 
           <p className='pb-4 baskervville-regular'>{data.summary}</p>
-          <div className='mt-7'>
+          <div className='mt-7 flex'>
             <Link to={`/edit/${data.id}`} className='bg-blue-200 px-5 py-2 m-1 rounded-md mr-4 hover:bg-blue-300 duration-200 baskervville-regular'>Edit</Link>
             <button onClick={()=> setShowModel(true)} className='bg-red-200 px-5 py-1 m-1 rounded-md hover:bg-red-300 duration-200 baskervville-regular'>Delete</button>
           </div>

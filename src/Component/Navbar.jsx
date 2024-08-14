@@ -10,7 +10,7 @@ function Navbar({ query ,setQuery , color}) {
     >
       <Link to={`/`} className='text-sm xl:text-2xl font-semibold text-purple-700 playwrite-cz hover:text-purple-500'>Book Bazaar</Link>
       <SearchBar setQuery= {setQuery} query={query}/>
-      <Link to={`/create`} className='text-xs lg:text-md bg-purple-400 px-1 xl:px-5 py-2 lg:py-2 m-1 rounded-md text-purple-100 hover:text-yellow-300 duration-300 text-nowrap'>Create book</Link>
+      <Link to={`/create`} className='text-xs md:text-sm lg:text-sm bg-purple-400 px-1 xl:px-5 py-2 lg:py-2 m-1 rounded-md text-purple-100 hover:text-yellow-300 duration-300 text-nowrap'>Create book</Link>
     </div>
   )
 }
