@@ -8,7 +8,7 @@ const Pagination = ({ totalPage, paginate, currentPage }) => {
     }
     return (
         <div>
-                <ul className='flex gap-[3px] md:gap-3 lg:gap-3 justify-center bg-purple-700 py-3 border-b'>
+                <ul className='flex flex-wrap gap-[3px] md:gap-3 lg:gap-3 justify-center bg-purple-700 py-3 border-b'>
                                 {currentPage > 0 && (
                                     <div 
                                         className='bg-purple-300 hover:bg-purple-200 pt-[7px] px-2 rounded-full duration-200'
